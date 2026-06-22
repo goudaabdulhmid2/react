@@ -6,6 +6,8 @@ import Home from './pages/home/Home';
 import About from './pages/about/About';
 import NotFound from './pages/not-found/NotFound';
 import CoursesDetails from './pages/courses-details/CoursesDetails';
+import AddCourses from './pages/add-cources/AddCourses';
+import CoursesLayout from './pages/coursesLayout/CoursesLayout';
 
 import './App.css';
 
@@ -16,8 +18,11 @@ function App() {
       element: <LayOut />,
       children: [
         { index: true, element: <Home /> },
-        { path: 'courses', element: <Courses /> },
-        { path: 'courses/:id', element: <CoursesDetails /> },
+        {path:'courses', element:<CoursesLayout/>, children:[
+          { index:true, element: <Courses /> },
+          { path: ':id', element: <CoursesDetails /> },
+          { path: 'add', element: <AddCourses /> },
+        ]},
         { path: 'about', element: <About /> },
       ],
     },
