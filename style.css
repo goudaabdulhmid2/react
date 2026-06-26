@@ -1,0 +1,15 @@
+@layer one, two; 
+
+@layer two {
+  .two {
+    color: blue;
+  }
+}
+
+
+@layer one {
+  .one {
+    color: red;
+  }
+}
+

@@ -30,7 +30,7 @@ useEffect(() => {
   console.log("Courses page mounted");
   document.title = "Courses";
 
-  getPosts();
+  getPosts(); 
 
   return () => {
     console.log("Unmounted");
@@ -62,9 +62,9 @@ useEffect(() => {
       </h1>
 
       <Row className="g-4">
-        {courses.map((course) => (
+        {courses.map((course) => 
             <CourseCard key={course.id} course={course} />
-        ))}
+        )}
       </Row>
     </Container>
   );

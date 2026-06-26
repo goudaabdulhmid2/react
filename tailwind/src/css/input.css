@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+#demo{
+    width: 400px;
+    height: 400px;
+    background-color: #bcbe37;
+    margin: 100px
+}

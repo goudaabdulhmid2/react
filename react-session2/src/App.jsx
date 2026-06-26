@@ -12,7 +12,7 @@ import CoursesLayout from './pages/coursesLayout/CoursesLayout';
 import './App.css';
 
 function App() {
-  const router = createBrowserRouter([
+  const routes = createBrowserRouter([
     {
       path: '/',
       element: <LayOut />,
@@ -24,15 +24,12 @@ function App() {
           { path: 'add', element: <AddCourses /> },
         ]},
         { path: 'about', element: <About /> },
+         ,
       ],
-    },
-    {
-      path: '*',
-      element: <NotFound />,
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={routes} />;
 }
 
 export default App;
