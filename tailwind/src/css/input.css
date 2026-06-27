@@ -1,4 +1,14 @@
 @import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+
+
+
+
+@utility container{
+    margin-inline: auto;
+}
 
 #demo{
     width: 400px;
@@ -6,3 +16,38 @@
     background-color: #bcbe37;
     margin: 100px
 }
+
+/* @apply => The @apply directive allows you to inline Tailwind utility classes into custom CSS rules. This is helpful when you need to write traditional CSS but still want to use your design tokens or theme settings. */
+.bl7{
+    @apply bg-orange-600 border w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 
+}
+
+/* 
+  1. We define our component utility.
+  2. Tailwind places this inside a lower-priority CSS layer.
+*/
+@utility btn-primary {
+  @apply bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg;
+}
+
+
+@theme {
+  /* 1. Custom Brand Colors */
+  --color-brand-primary: oklch(0.62 0.24 256.4); /* Creates bg-brand-primary, text-brand-primary */
+  --color-brand-secondary: #ff4a5a;             /* Hex values work perfectly too */
+  
+  /* 2. Custom Typography */
+  --font-display: "Satoshi", sans-serif;         /* Creates font-display */
+
+  /* 3. Custom Screen Breakpoints */
+  --breakpoint-3xl: 1920px;                      /* Creates 3xl: hidden */
+
+  /* 4. Custom Spacing / Sizing */
+  --spacing-15: 3.75rem;                         /* Creates p-15, h-15, w-15, etc. */
+}
+
+/* 
+    Extending vs. OverridingTo Extend (Add New Values): Simply give your variable a completely unique name like --color-brand-primary. 
+    This adds to the existing framework options without erasing any of Tailwind's defaults.To Override (Replace Default Values): Target a default keyword directly. 
+    For example, writing --color-blue-500: #123456; inside your @theme block completely overwrites Tailwind's built-in blue-500 color.
+ */
